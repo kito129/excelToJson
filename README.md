@@ -256,11 +256,11 @@ the ID propriety are that you need, if return empty array [] so leave the props 
 
 ![EXAMPLE](./documentation/images/2.png?raw=true "example")
 
-for that market "Ostapenko v Sasnovich" 11-Feb 16:44:51
+For that market "Ostapenko v Sasnovich" 11-Feb 16:44:51
 
-in that example i made 2 API call cause no Ostapenko neither Sasnovich have the runner ID, 
+- in that example i made 2 API call cause no Ostapenko neither Sasnovich have the runner ID, 
 
-that's the request
+- that's the request
 ```json
 {
     "name": "Jelena Ostapenko"
@@ -272,9 +272,9 @@ that's the request
 }
 ```
 
-and that's the response
+- and that's the response
 
-for that one i take the first object
+- for that one i take the first object
 ```json
 [
     {
@@ -291,6 +291,7 @@ for that one i take the first object
     }
 ]
 ```
+taking the first object
 
 "Jelena Ostapenko" ID --> 8827537
 
@@ -308,11 +309,11 @@ for that one i take the first object
 
 "Aliaksandra Sasnovich" ID --> 7283310
 
-the Strategy column G are empty so i use "6220e21a9344202f70a26818" for strategyId
+- The Strategy column G are empty so i use "6220e21a9344202f70a26818" for strategyId
 
 
-You can find that example in the folder "./OutputFiles/03_03_2022_18_16_22" wth the name "02_11_2022_Ostapenko v Sasnovich.json"
+You can find that example with the name "02_11_2022_Ostapenko v Sasnovich.json"
 
-[Example](./OutputFiles/03_03_2022_18_16_22/02_11_2022_Ostapenko v Sasnovich.json)
+[Example Folder](./OutputFiles/03_03_2022_18_16_22/)
 
 
