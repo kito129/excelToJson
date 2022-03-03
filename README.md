@@ -1,13 +1,13 @@
 # excelToJson
 
-The propose of that project is to convert t and excel file to some JSON file that i will upload in my personal DB
+The purpose of that project is to convert an excel file to some JSON files that i will upload in my personal DB
 
 As alway we need to work for block in the excel, one single block are like that 
 
 ![block](./documentation/images/1.png?raw=true "1")
 a block always start with a Date in colum B, "OPEN" in column AD (with upper "final if is not the first"), end ends at "FINAL" in column AD.
 
-As the previous project palce path value 
+As the previous project place path value 
 
 ```python
     path = "./InputFolder/"
@@ -56,7 +56,7 @@ That will be the final format of the JSON
         // for that part take attention of columns from I to M
         selections: [{ // array of objet, one each for runner (runnerA in columns I and runnerB in column J)
             selectionN: {type: Number}, // sequential number of runner, 0 for runnerA, 1 for runnerB
-            runnerId: {type: Number},   // the third row in columns name, if empty CALL THE API TO RETRIVE ID, i explain that in point API RUNNER
+            runnerId: {type: Number},   // explained in API RUNNERS paragraph
             runnerName: {type: String}, // the name of the runner, first row in column I or J
             winner: {type: Boolean}, // if the runnerName is the same name in column K true, false otherwise
             bsp: {type: Number}, // the second row of the columns of runner I or J
@@ -194,7 +194,7 @@ That will be the final format of the JSON
     }
 });
 ```
-### API RUNNER 
+## API RUNNERS
 
 If the runner column (I or J) have only name, below a float point like "1.10" and no other number below we missed the runner ID
 
@@ -218,10 +218,10 @@ and the response should be:
 ]
 ```
 
-the ID propriety are that you need, if return empty array [] so leave the props in the JSON null, if it returns 2 value in the array take always the first one
+the ID propriety are that you need, if return empty array [] so leave the props in the JSON null, if it returns 2 or more object in the array take always the first one
 
 
-### API STRATEGY
+## API STRATEGY
 
 For the strategyId props we need to lookup at columns G
 
@@ -247,7 +247,8 @@ and the response should be:
     }
 ]
 ```
-the ID propriety are that you need, if return empty array [] so leave the props in the JSON null, if it returns 2 value in the array take always the first one
+
+the ID propriety are that you need, if return empty array [] so leave the props in the JSON null, if it returns 2 or more object in the array take always the first one
 
 
 
@@ -311,5 +312,7 @@ the Strategy column G are empty so i use "6220e21a9344202f70a26818" for strategy
 
 
 You can find that example in the folder "./OutputFiles/03_03_2022_18_16_22" wth the name "02_11_2022_Ostapenko v Sasnovich.json"
+
+[02_11_2022_Ostapenko v Sasnovich.json](./OutputFiles/03_03_2022_18_16_22/02_11_2022_Ostapenko v Sasnovich.json)
 
 
