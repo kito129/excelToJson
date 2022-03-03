@@ -313,6 +313,6 @@ the Strategy column G are empty so i use "6220e21a9344202f70a26818" for strategy
 
 You can find that example in the folder "./OutputFiles/03_03_2022_18_16_22" wth the name "02_11_2022_Ostapenko v Sasnovich.json"
 
-[02_11_2022_Ostapenko v Sasnovich.json](./OutputFiles/03_03_2022_18_16_22/02_11_2022_Ostapenko v Sasnovich.json)
+[Example](./OutputFiles/03_03_2022_18_16_22/02_11_2022_Ostapenko v Sasnovich.json)
 
 
