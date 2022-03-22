@@ -92,7 +92,7 @@ def compileData(data):
                 executor = [block[0][5]],     
                 exchange = dict(
                     name = block[0][4],       # COLUMN E
-                    commission = 0.02 if block[0][4]=='UK' else 0.05, 
+                    commission = 0.02 if block[0][4]=='UK' else 0.05, # "UK" OR "DEMO" => 0.02, 0.05 otherwise
                 ),
                 note = dict(
                     description = '', 
@@ -128,15 +128,15 @@ def compileData(data):
                 sets = runner['sets'],
                 avg = dict(
                     back = getAvg(block,runner,'B',['odds','stack','toWin']),
-                    lay = getAvg(block,runner,'L',['adds','bank','liability'])
+                    lay = getAvg(block,runner,'L',['odds','bank','liability'])
                 )
         ) for rn, runner in enumerate(runners)]
         day = 0
         json['trade']['trades'] = [ 
                 dict(
-                    id = row[27], 
+                    id = row[27], # not via excel but counter i that start from 1 and increase every trades
                     selectionN = ['A','B',None].index(row[30]), 
-                    type = ['back','lay'][(type:=row[33])=='L'], 
+                    type = ['back','lay'][(type:=row[31])=='L'],  #it's 31 not 33, already changed
                     odds = round((odds:=float(row[32] or 0)),2), 
                     stake = round((stake:=float(row[33] or 0)),2), 
                     liability = round((stake if type=='B' else (stake*(odds-1))),2),
@@ -189,10 +189,10 @@ def compileData(data):
                 )
             for rn, row in enumerate(block[:-1][::-1])][::-1]
         json['trade']['results'] =  dict(
-                grossProfit = (aj:=float(block[0][35] or 0)) + (ak:=float(block[0][36] or 0)), 
-                netProfit = ak, 
-                maxRisk = -(ai:=float(block[0][34] or 0)), 
-                rr = 0 if ai==0 else round(ak/ai,2), 
+                grossProfit = round((aj:=float(block[0][35] or 0)) + (ak:=float(block[0][36] or 0)),2), # rounded 
+                netProfit =  round(ak,2), # rounded 
+                maxRisk =  round(-(ai:=float(block[0][34] or 0)),2), # rounded 
+                rr = 0 if ai==0 else round(ak/ai,4), # 4 digits
                 commissionPaid = aj, 
                 correctionPl = 0, 
                 finalScore = dict( 
