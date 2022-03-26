@@ -37,7 +37,7 @@ def getStamp(date, time):
         return None
 
 
-def getAvg(block, runner, char, params=None, type_='back'):
+def getAvg(block, runner, char, type): #fixed
     stake = 0
     oddsWeight = 0
     for row in block:
@@ -45,17 +45,17 @@ def getAvg(block, runner, char, params=None, type_='back'):
             stake += row[33] or 0
             oddsWeight += (row[32] or 0) * (row[33] or 0)
     odds = 0 if stake == 0 else (oddsWeight / stake)
-    if type_ == 'back':
+    if type == 'back':
         toWin = stake * (odds - 1)
         liability = stake
     else:
         liability = stake * (odds - 1)
         toWin = stake
-    return {
-        params[0]: round(odds, 2),
-        params[1]: round(stake, 2),
-        params[2]: round(toWin, 2),
-        params[3]: round(liability, 2)
+    return { # fixed
+        'odds': round(odds, 2),
+        'stake': round(stake, 2),
+        'toWin': round(toWin, 2),
+        'liability': round(liability, 2)
     }
 
 
@@ -159,8 +159,8 @@ def compileData(data):
             bsp=runner['bsp'],
             sets=runner['sets'],
             avg=dict(
-                back=getAvg(block, runner, 'B', ['odds', 'stake', 'toWin', 'liability']),
-                lay=getAvg(block, runner, 'L', ['odds', 'stake', 'toWin', 'liability'])
+                back=getAvg(block, runner, 'B',"back"),
+                lay=getAvg(block, runner, 'L',"lay"), # fixed
             )
         ) for rn, runner in enumerate(runners)]
         day = 0
