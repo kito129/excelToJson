@@ -37,7 +37,7 @@ def getStamp(date, time):
         return None
 
 
-def getAvg(block, runner, char, type): #fixed
+def getAvg(block, runner, char, type_): #fixed
     stake = 0
     oddsWeight = 0
     for row in block:
@@ -45,7 +45,7 @@ def getAvg(block, runner, char, type): #fixed
             stake += row[33] or 0
             oddsWeight += (row[32] or 0) * (row[33] or 0)
     odds = 0 if stake == 0 else (oddsWeight / stake)
-    if type == 'back':
+    if type_ == 'back':
         toWin = stake * (odds - 1)
         liability = stake
     else:
