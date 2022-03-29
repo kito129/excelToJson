@@ -37,6 +37,7 @@ def getStamp(date, time):
         return int(datetime.strptime(date.strftime('%Y-%m-%d ') + time.strftime('%H:%M:%S'),
                                      '%Y-%m-%d %H:%M:%S').timestamp() * 1000) + 3600000
     except AttributeError:
+        log("\t [Possible Error: Date not present]", end='')
         return None
 
 
@@ -78,7 +79,7 @@ def getTime(rn, rows):
     if not prevTime:
         return getStamp(rows[-1][1] - timedelta(day), time)
     if not time:
-        log(" [Possible Error: Empty Time in sets/trades]", end='')
+        log("\t [Possible Error: Empty Time in sets/trades]", end='')
         return None
     elif day or prevTime > time:
         date = rows[-1][1] - timedelta(day)
@@ -91,11 +92,11 @@ def getStat(rn, block):
     return row if row not in ['#N/A', None, '0'] else 0
 
 
-def compileData(b, block):
+def compileData(b, block, inc):
     global day, outputPath
     log(f"\t[{b}] {block[0][3]}", end="")
-    if not block[-1][14]:
-        log(" => [Error: Incomplete sets]")
+    if block[-1][14] == None:
+        log("\t => [Error: Incomplete sets]")
         return
     json = dict(
         created=int(datetime.now().timestamp() * 1000) + 3600000,
@@ -224,14 +225,14 @@ def compileData(b, block):
     
     tradeIndex = 0
     results = []
-    for trade in json['trade']['results']:
+    for trade in json['trade']['trades']:
         if not trade['odds']:
-            log(" [Error -> Empty row skipped]")
+            log("\t [Error -> Empty row skipped]")
             continue
         tradeIndex += 1            
         trade['id'] = tradeIndex
         results.append(trade)
-    json['trade']['results'] = results
+    json['trade']['trades'] = results
 
     json['trade']['results'] = dict(
         grossProfit=round((aj := float(block[0][35] or 0)) + (ak := float(block[0][36] or 0)), 2),  # rounded
@@ -305,14 +306,8 @@ def compileData(b, block):
             params10=block[0][st + 9] or 0,
         )
         for st in range(65, 76, 10)]
-    filename = block[0][1].strftime(f'%m_%d_%Y_{block[0][3]}.json').replace('/','_')
-    inc = 0
-    ext = ''
-    while os.path.exists(os.path.join(outputPath, filename)):
-        filename = filename.replace(f'{ext}.json',f'_{inc+1}.json')
-        inc += 1
-        ext = f'_{inc}'
-    log(f" => [Compiled to {filename}]")
+    filename = block[0][1].strftime(f'{inc}-%m_%d_%Y_{block[0][3]}.json').replace('/','_')
+    log(f"\t => [Compiled to {filename}]")
     dump(json, open(os.path.join(outputPath, filename), 'w', encoding='utf-8'), indent=4)
 
 
@@ -327,7 +322,7 @@ if not os.path.exists(outputPath):
         log("[-] Output Path not exists and unable to Create")
         sys.exit(0)
 
-logger = open(os.path.join(outputPath,'logs.txt'), 'w', encoding='utf-8')
+logger = open(os.path.join(outputPath,'00_logs.txt'), 'w', encoding='utf-8')
 
 for file in glob.glob(os.path.join(inputPath, "*.xlsx")):
     log(f'[=] Reading Book: {os.path.basename(file)}')
@@ -349,9 +344,11 @@ for file in glob.glob(os.path.join(inputPath, "*.xlsx")):
             block = []
         elif block:
             block.append(cells)
+    inc = 1
     for b, block in enumerate(data, start=1):
         try:
-            compileData(b, block)
+            compileData(b, block, inc)
+            inc += 1
         except Exception as e:
             log(f" => [Error: {e}]")
     log()
