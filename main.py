@@ -200,9 +200,9 @@ def compileData(b, block):
                               runnerB=row[23] or 0,
                           ),
                           currentGame=dict(
-                              runnerA=row[24] or "",
-                              runnerB=row[25] or "",
-                              server=row[26] or ""
+                              runnerA=str(row[24] or 0),
+                              runnerB=str(row[25] or 0),
+                              server=str(row[26] or "")
                           )
                       )
                   ),
@@ -221,6 +221,18 @@ def compileData(b, block):
               )
           )
           for rn, row in enumerate(block[:-1][::-1])][::-1]
+    
+    tradeIndex = 0
+    results = []
+    for trade in json['trade']['results']:
+        if not trade['odds']:
+            log(" [Error -> Empty row skipped]")
+            continue
+        tradeIndex += 1            
+        trade['id'] = tradeIndex
+        results.append(trade)
+    json['trade']['results'] = results
+
     json['trade']['results'] = dict(
         grossProfit=round((aj := float(block[0][35] or 0)) + (ak := float(block[0][36] or 0)), 2),  # rounded
         netProfit=round(ak, 2),  # rounded
@@ -251,9 +263,9 @@ def compileData(b, block):
                     runnerB=block[-1][23],
                 ),
                 currentGame=dict(
-                    runnerA="",
-                    runnerB="",
-                    server=""
+                    runnerA=None,
+                    runnerB=None,
+                    server=None
                 )
             ),
             football=dict(
@@ -294,7 +306,12 @@ def compileData(b, block):
         )
         for st in range(65, 76, 10)]
     filename = block[0][1].strftime(f'%m_%d_%Y_{block[0][3]}.json').replace('/','_')
-
+    inc = 0
+    ext = ''
+    while os.path.exists(os.path.join(outputPath, filename)):
+        filename = filename.replace(f'{ext}.json',f'_{inc+1}.json')
+        inc += 1
+        ext = f'_{inc}'
     log(f" => [Compiled to {filename}]")
     dump(json, open(os.path.join(outputPath, filename), 'w', encoding='utf-8'), indent=4)
 
