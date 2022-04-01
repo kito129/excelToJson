@@ -167,6 +167,8 @@ def compileData(b, block, inc):
         )
     ) for rn, runner in enumerate(runners)]
     day = 0
+    if (time:=checkTime(block[-2][28])) and (prevTime:=checkTime(block[0][2])) and time > prevTime:
+        day = 1 
     json['trade']['trades'] = [dict(
               id=len(block[:-1]) - rn,
               selectionN=['A', 'B', None].index(row[30]),
@@ -224,15 +226,15 @@ def compileData(b, block, inc):
           for rn, row in enumerate(block[:-1][::-1])][::-1]
     
     tradeIndex = 0
-    results = []
+    trades = []
     for trade in json['trade']['trades']:
         if not trade['odds']:
             log("\t [Error -> Empty row skipped]")
             continue
         tradeIndex += 1            
         trade['id'] = tradeIndex
-        results.append(trade)
-    json['trade']['trades'] = results
+        trades.append(trade)
+    json['trade']['trades'] = trades
 
     json['trade']['results'] = dict(
         grossProfit=round((aj := float(block[0][35] or 0)) + (ak := float(block[0][36] or 0)), 2),  # rounded
