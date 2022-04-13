@@ -2,6 +2,7 @@ import os, json
 from datetime import datetime, timedelta
 from re import X
 import pymongo
+import sys
 
 inputPath = "VALID/01_lay the fav/04_04_2022_16_57_17"
 outputPath = "uploadLog"
