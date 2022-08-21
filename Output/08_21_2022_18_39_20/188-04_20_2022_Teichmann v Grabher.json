@@ -1,0 +1,351 @@
+{
+    "created": 1661103614006,
+    "updated": 1661103614006,
+    "trade": {
+        "info": {
+            "setTime": {
+                "second": 1650468139000,
+                "third": null
+            },
+            "strategyId": "62534c6e56114c0a8ba2002b",
+            "tennisTournamentId": "625e78c695f0b1197fbac4b3",
+            "date": 1650409200000,
+            "marketInfo": {
+                "marketName": "Teichmann v Grabher",
+                "marketId": "",
+                "marketType": "MATCH_ODDS",
+                "eventName": "Match Odds",
+                "sport": "TENNIS"
+            },
+            "executor": [
+                "DEMO"
+            ],
+            "exchange": {
+                "name": "DEMO",
+                "commission": 0.02
+            },
+            "note": {
+                "description": "",
+                "entry": "",
+                "exit": "",
+                "position": "",
+                "mm": "",
+                "odds": "",
+                "post": ""
+            }
+        },
+        "selections": [
+            {
+                "selectionN": 0,
+                "runnerId": 9247812,
+                "runnerName": "Jil Teichmann",
+                "winner": false,
+                "bsp": 1.34,
+                "sets": {
+                    "secondSet": 2.36,
+                    "thirdSet": null
+                },
+                "avg": {
+                    "back": {
+                        "odds": 2.81,
+                        "stake": 13,
+                        "toWin": 23.5,
+                        "liability": 13
+                    },
+                    "lay": {
+                        "odds": 2.5,
+                        "stake": 1.5,
+                        "toWin": 1.5,
+                        "liability": 2.25
+                    }
+                }
+            },
+            {
+                "selectionN": 1,
+                "runnerId": 8681454,
+                "runnerName": "Julia Grabher",
+                "winner": true,
+                "bsp": 4.2,
+                "sets": {
+                    "secondSet": 1.73,
+                    "thirdSet": null
+                },
+                "avg": {
+                    "back": {
+                        "odds": 0,
+                        "stake": 0,
+                        "toWin": 0,
+                        "liability": 0
+                    },
+                    "lay": {
+                        "odds": 0,
+                        "stake": 0,
+                        "toWin": 0,
+                        "liability": 0
+                    }
+                }
+            }
+        ],
+        "trades": [
+            {
+                "id": 1,
+                "selectionN": 0,
+                "type": "back",
+                "odds": 2.36,
+                "stake": 10.0,
+                "liability": 10.0,
+                "ifWin": 13.6,
+                "options": "OPEN",
+                "condition": {
+                    "tennis": {
+                        "isTennis": true,
+                        "point": {
+                            "set1": {
+                                "runnerA": 4,
+                                "runnerB": 6
+                            },
+                            "set2": {
+                                "runnerA": 0,
+                                "runnerB": 0
+                            },
+                            "set3": {
+                                "runnerA": 0,
+                                "runnerB": 0
+                            },
+                            "set4": {
+                                "runnerA": 0,
+                                "runnerB": 0
+                            },
+                            "set5": {
+                                "runnerA": 0,
+                                "runnerB": 0
+                            },
+                            "currentGame": {
+                                "runnerA": "0",
+                                "runnerB": "0",
+                                "server": "A"
+                            }
+                        }
+                    },
+                    "football": {
+                        "isFootball": false,
+                        "point": {
+                            "home": 0,
+                            "away": 0
+                        }
+                    },
+                    "horse": {
+                        "isHorse": false
+                    },
+                    "note": null,
+                    "time": 1650468142000
+                }
+            },
+            {
+                "id": 2,
+                "selectionN": 0,
+                "type": "back",
+                "odds": 4.3,
+                "stake": 3.0,
+                "liability": 3.0,
+                "ifWin": 9.9,
+                "options": "INCREASE MARGIN",
+                "condition": {
+                    "tennis": {
+                        "isTennis": true,
+                        "point": {
+                            "set1": {
+                                "runnerA": 4,
+                                "runnerB": 6
+                            },
+                            "set2": {
+                                "runnerA": 2,
+                                "runnerB": 3
+                            },
+                            "set3": {
+                                "runnerA": 0,
+                                "runnerB": 0
+                            },
+                            "set4": {
+                                "runnerA": 0,
+                                "runnerB": 0
+                            },
+                            "set5": {
+                                "runnerA": 0,
+                                "runnerB": 0
+                            },
+                            "currentGame": {
+                                "runnerA": "0",
+                                "runnerB": "0",
+                                "server": "B"
+                            }
+                        }
+                    },
+                    "football": {
+                        "isFootball": false,
+                        "point": {
+                            "home": 0,
+                            "away": 0
+                        }
+                    },
+                    "horse": {
+                        "isHorse": false
+                    },
+                    "note": null,
+                    "time": 1650469355000
+                }
+            },
+            {
+                "id": 3,
+                "selectionN": 0,
+                "type": "lay",
+                "odds": 2.5,
+                "stake": 1.5,
+                "liability": 2.25,
+                "ifWin": 1.5,
+                "options": "DECREASE MARGIN",
+                "condition": {
+                    "tennis": {
+                        "isTennis": true,
+                        "point": {
+                            "set1": {
+                                "runnerA": 4,
+                                "runnerB": 6
+                            },
+                            "set2": {
+                                "runnerA": 4,
+                                "runnerB": 4
+                            },
+                            "set3": {
+                                "runnerA": 0,
+                                "runnerB": 0
+                            },
+                            "set4": {
+                                "runnerA": 0,
+                                "runnerB": 0
+                            },
+                            "set5": {
+                                "runnerA": 0,
+                                "runnerB": 0
+                            },
+                            "currentGame": {
+                                "runnerA": "0",
+                                "runnerB": "0",
+                                "server": "A"
+                            }
+                        }
+                    },
+                    "football": {
+                        "isFootball": false,
+                        "point": {
+                            "home": 0,
+                            "away": 0
+                        }
+                    },
+                    "horse": {
+                        "isHorse": false
+                    },
+                    "note": null,
+                    "time": 1650470273000
+                }
+            }
+        ],
+        "results": {
+            "grossProfit": -11.5,
+            "netProfit": -11.5,
+            "maxRisk": -13.0,
+            "rr": -0.8846,
+            "commissionPaid": 0.0,
+            "correctionPl": 0,
+            "finalScore": {
+                "tennis": {
+                    "set1": {
+                        "runnerA": 4,
+                        "runnerB": 6
+                    },
+                    "set2": {
+                        "runnerA": 4,
+                        "runnerB": 6
+                    },
+                    "set3": {
+                        "runnerA": null,
+                        "runnerB": null
+                    },
+                    "set4": {
+                        "runnerA": null,
+                        "runnerB": null
+                    },
+                    "set5": {
+                        "runnerA": null,
+                        "runnerB": null
+                    },
+                    "currentGame": {
+                        "runnerA": null,
+                        "runnerB": null,
+                        "server": null
+                    }
+                },
+                "football": {
+                    "home": 0,
+                    "away": 0
+                }
+            }
+        },
+        "stats": [
+            {
+                "runnerId": 9247812,
+                "stats1": 62.6,
+                "stats2": 45.3,
+                "stats3": 59.1,
+                "stats4": 80,
+                "stats5": 36.4,
+                "stats6": 12,
+                "stats7": 37,
+                "stats8": 31,
+                "stats9": 112,
+                "stats10": 0
+            },
+            {
+                "runnerId": 8681454,
+                "stats1": 60.7,
+                "stats2": 43,
+                "stats3": 57,
+                "stats4": 70.8,
+                "stats5": 33.8,
+                "stats6": 21.4,
+                "stats7": 194,
+                "stats8": 148,
+                "stats9": 189,
+                "stats10": 0
+            }
+        ],
+        "params": [
+            {
+                "runnerId": 9247812,
+                "params1": 0,
+                "params2": 0,
+                "params3": 0,
+                "params4": 0,
+                "params5": 0,
+                "params6": 0,
+                "params7": 0,
+                "params8": 0,
+                "params9": 0,
+                "params10": 0
+            },
+            {
+                "runnerId": 8681454,
+                "params1": 0,
+                "params2": 0,
+                "params3": 0,
+                "params4": 0,
+                "params5": 0,
+                "params6": 0,
+                "params7": 0,
+                "params8": 0,
+                "params9": 0,
+                "params10": 0
+            }
+        ]
+    }
+}

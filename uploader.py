@@ -4,7 +4,7 @@ from re import X
 import pymongo
 import sys
 
-inputPath = "OutputFiles"
+inputPath = "Output"
 outputPath = "uploadLog"
 
 def log(*args, end='\n'):

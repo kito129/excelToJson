@@ -313,8 +313,8 @@ def compileData(b, block, inc):
     dump(json, open(os.path.join(outputPath, filename), 'w', encoding='utf-8'), indent=4)
 
 
-inputPath = "InputFolder"
-outputPath = "OutputFiles"
+inputPath = "Input"
+outputPath = "Output"
 
 outputPath = os.path.join(outputPath, datetime.now().strftime('%m_%d_%Y_%H_%M_%S'))
 if not os.path.exists(outputPath):
