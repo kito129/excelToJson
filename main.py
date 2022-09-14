@@ -12,7 +12,7 @@ def getStrategy(name):
     default = '6220e21a9344202f70a26818'
     if not name:
         return default
-    r = requests.post('http://217.61.104.122/api/report/strategyInfoByName', json={'name': name})
+    r = requests.post('http://95.111.245.75/api/report/strategyInfoByName', json={'name': name})
     if not r or 'error' in r.text:
         return default
     return (r.json() or [{}])[0].get('id', default)
@@ -22,7 +22,7 @@ def getRunnerId(runner):
     name = runner['name']
     if default := runner['id']:
         return default
-    r = requests.post('http://217.61.104.122/api/runners/infoByName', json={'name': name})
+    r = requests.post('http://95.111.245.75/api/runners/infoByName', json={'name': name})
     if not r or 'error' in r.text:
         return default
     return (r.json() or [{}])[0].get('id', default)
@@ -104,6 +104,7 @@ def compileData(b, block, inc):
         trade=dict(
             info=dict(
                 setTime=dict(
+                    # check if remove 1 hour in all from next
                     second=getStamp(block[0][1], block[1][2]),
                     third=getStamp(block[0][1], None if len(block) < 3 else block[2][2])
                 ),

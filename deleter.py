@@ -8,10 +8,14 @@ client = pymongo.MongoClient(
 db = client.bf_historical
 
 
-d = db.tradeNew.delete_many({ "trade.info.strategyId": "62534c6e56114c0a8ba2002b"})
+#d = db.tradeNew.delete_many({ "trade.info.strategyId": "62534c6e56114c0a8ba2002b"})
+
+
+d = db.notes.delete_many({"note.type": "WalkOver"})
 
 print(d.deleted_count, " documents deleted !!")
 
 
 #{ "trade.info.strategyId": "62534c6e56114c0a8ba2002b"}
 #{ "updated" : { "$gte" : 1660656712000 } }
+#{"note.type": "WalkOver"}
