@@ -1,32 +1,32 @@
 {
-    "created": 1663621658530,
-    "updated": 1663621658530,
+    "created": 1666907217542,
+    "updated": 1666907217542,
     "trade": {
         "info": {
             "setTime": {
                 "second": null,
                 "third": null
             },
-            "strategyId": "6317a91675f1fd3184bbb8f4",
-            "tennisTournamentId": "631e0315fff73453a27efcab",
-            "date": 1663601176000,
+            "strategyId": "632b7823df278b8be88388dd",
+            "tennisTournamentId": null,
+            "date": 1665694547000,
             "marketInfo": {
-                "marketName": "Guinard v Giustino",
+                "marketName": "Lazio v Sturm Graz",
                 "marketId": "",
                 "marketType": "MATCH_ODDS",
                 "eventName": "Match Odds",
                 "sport": "TENNIS"
             },
             "executor": [
-                "KITO"
+                "KEVIN"
             ],
             "exchange": {
-                "name": "KITO",
-                "commission": 0.05
+                "name": "UK",
+                "commission": 0.02
             },
             "note": {
                 "description": "",
-                "entry": "",
+                "entry": "MAGGIORATA SU OVER 0.5 GOL LAZIO \nBANCHIAMO 1 PERCHE MERCATO OVER 0.5 GOL NON C'E'",
                 "exit": "",
                 "position": "",
                 "mm": "",
@@ -37,10 +37,10 @@
         "selections": [
             {
                 "selectionN": 0,
-                "runnerId": 8427047,
-                "runnerName": "Manuel Guinard",
-                "winner": true,
-                "bsp": 1.7,
+                "runnerId": 56966,
+                "runnerName": "Lazio",
+                "winner": false,
+                "bsp": null,
                 "sets": {
                     "secondSet": null,
                     "thirdSet": null
@@ -53,19 +53,19 @@
                         "liability": 0
                     },
                     "lay": {
-                        "odds": 1.12,
-                        "stake": 877.33,
-                        "toWin": 877.33,
-                        "liability": 104.84
+                        "odds": 1.57,
+                        "stake": 17.54,
+                        "toWin": 17.54,
+                        "liability": 10.0
                     }
                 }
             },
             {
                 "selectionN": 1,
-                "runnerId": 7534093,
-                "runnerName": "Lorenzo Giustino",
+                "runnerId": 71085,
+                "runnerName": "Sturm Graz",
                 "winner": false,
-                "bsp": 2.3,
+                "bsp": null,
                 "sets": {
                     "secondSet": null,
                     "thirdSet": null
@@ -91,22 +91,22 @@
                 "id": 1,
                 "selectionN": 0,
                 "type": "lay",
-                "odds": 1.11,
-                "stake": 44.0,
-                "liability": 4.84,
-                "ifWin": 44.0,
+                "odds": 1.57,
+                "stake": 17.54,
+                "liability": 10.0,
+                "ifWin": 17.54,
                 "options": "OPEN",
                 "condition": {
                     "tennis": {
                         "isTennis": true,
                         "point": {
                             "set1": {
-                                "runnerA": 6,
-                                "runnerB": 2
+                                "runnerA": 45,
+                                "runnerB": 65
                             },
                             "set2": {
-                                "runnerA": 4,
-                                "runnerB": 2
+                                "runnerA": 71,
+                                "runnerB": 83
                             },
                             "set3": {
                                 "runnerA": 0,
@@ -121,9 +121,9 @@
                                 "runnerB": 0
                             },
                             "currentGame": {
-                                "runnerA": "30",
-                                "runnerB": "15",
-                                "server": "B"
+                                "runnerA": "0",
+                                "runnerB": "0",
+                                "server": "A"
                             }
                         }
                     },
@@ -137,81 +137,27 @@
                     "horse": {
                         "isHorse": false
                     },
-                    "note": null,
-                    "time": 1663599785000
-                }
-            },
-            {
-                "id": 2,
-                "selectionN": 0,
-                "type": "lay",
-                "odds": 1.12,
-                "stake": 833.33,
-                "liability": 100.0,
-                "ifWin": 833.33,
-                "options": "OPEN",
-                "condition": {
-                    "tennis": {
-                        "isTennis": true,
-                        "point": {
-                            "set1": {
-                                "runnerA": 6,
-                                "runnerB": 2
-                            },
-                            "set2": {
-                                "runnerA": 4,
-                                "runnerB": 2
-                            },
-                            "set3": {
-                                "runnerA": 0,
-                                "runnerB": 0
-                            },
-                            "set4": {
-                                "runnerA": 0,
-                                "runnerB": 0
-                            },
-                            "set5": {
-                                "runnerA": 0,
-                                "runnerB": 0
-                            },
-                            "currentGame": {
-                                "runnerA": "30",
-                                "runnerB": "30",
-                                "server": "B"
-                            }
-                        }
-                    },
-                    "football": {
-                        "isFootball": false,
-                        "point": {
-                            "home": 0,
-                            "away": 0
-                        }
-                    },
-                    "horse": {
-                        "isHorse": false
-                    },
-                    "note": null,
-                    "time": 1663599793000
+                    "note": "MAGGIORATA SU OVER 0.5 GOL LAZIO \nBANCHIAMO 1 PERCHE MERCATO OVER 0.5 GOL NON C'E'",
+                    "time": 1665653546000
                 }
             }
         ],
         "results": {
-            "grossProfit": -104.85,
-            "netProfit": -104.85,
-            "maxRisk": -104.85,
-            "rr": -1.0,
-            "commissionPaid": 0.0,
+            "grossProfit": 17.54,
+            "netProfit": 16.72,
+            "maxRisk": -10.0,
+            "rr": 1.672,
+            "commissionPaid": 0.82,
             "correctionPl": 0,
             "finalScore": {
                 "tennis": {
                     "set1": {
-                        "runnerA": 6,
+                        "runnerA": 2,
                         "runnerB": 2
                     },
                     "set2": {
-                        "runnerA": 6,
-                        "runnerB": 4
+                        "runnerA": null,
+                        "runnerB": null
                     },
                     "set3": {
                         "runnerA": null,
@@ -239,7 +185,7 @@
         },
         "stats": [
             {
-                "runnerId": 8427047,
+                "runnerId": 56966,
                 "stats1": 0,
                 "stats2": 0,
                 "stats3": 0,
@@ -252,7 +198,7 @@
                 "stats10": 0
             },
             {
-                "runnerId": 7534093,
+                "runnerId": 71085,
                 "stats1": 0,
                 "stats2": 0,
                 "stats3": 0,
@@ -267,7 +213,7 @@
         ],
         "params": [
             {
-                "runnerId": 8427047,
+                "runnerId": 56966,
                 "params1": 0,
                 "params2": 0,
                 "params3": 0,
@@ -280,7 +226,7 @@
                 "params10": 0
             },
             {
-                "runnerId": 7534093,
+                "runnerId": 71085,
                 "params1": 0,
                 "params2": 0,
                 "params3": 0,
