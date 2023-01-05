@@ -123,7 +123,7 @@ def compileData(b, block, inc):
                 executor=[block[0][5]],
                 exchange=dict(
                     name=block[0][4],  # COLUMN E
-                    commission=0.02 if block[0][4] in ['UK', 'DEMO'] else 0.05,
+                    commission=0.02 if block[0][4] in ['MT KEVIN',' UK', 'DEMO'] else 0.05,
                 ),
                 note=dict(
                     description='',
