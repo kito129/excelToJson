@@ -1,3 +1,15 @@
+##
+# excelToJson
+# AUTHOR: MARCO SELVA
+# DATE CREATION 02/12/2022
+# VERSION: 2.0
+# v2.0: 01/12/2023
+# v1.0: 03/06/2022
+# 
+# TODO
+# 
+# ##
+
 from openpyxl import load_workbook
 from datetime import datetime, timedelta
 from json import dump
@@ -114,6 +126,7 @@ def compileData(b, block, inc):
                 marketInfo=dict(
                     marketName=block[0][3],
                     marketId='',
+                    # if "-" not present default is MATCH_ODDS, else use the suffix after " - "
                     marketType=(
                         "MATCH_ODDS" if ' - ' not in block[0][3] else block[0][3].split(' - ')[-1].
                             replace(' 1 ', '_').replace(' 2 ', '_')).upper(),
