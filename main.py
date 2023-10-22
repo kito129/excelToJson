@@ -1,3 +1,15 @@
+##
+# excelToJson
+# AUTHOR: MARCO SELVA
+# DATE CREATION 02/12/2022
+# VERSION: 2.0
+# v2.0: 01/12/2023
+# v1.0: 03/06/2022
+# 
+# TODO
+# 
+# ##
+
 from openpyxl import load_workbook
 from datetime import datetime, timedelta
 from json import dump
@@ -12,7 +24,7 @@ def getStrategy(name):
     default = '6220e21a9344202f70a26818'
     if not name:
         return default
-    r = requests.post('http://217.61.104.122/api/report/strategyInfoByName', json={'name': name})
+    r = requests.post('http://95.111.245.75/api/report/strategyInfoByName', json={'name': name})
     if not r or 'error' in r.text:
         return default
     return (r.json() or [{}])[0].get('id', default)
@@ -22,7 +34,7 @@ def getRunnerId(runner):
     name = runner['name']
     if default := runner['id']:
         return default
-    r = requests.post('http://217.61.104.122/api/runners/infoByName', json={'name': name})
+    r = requests.post('http://95.111.245.75/api/runners/infoByName', json={'name': name})
     if not r or 'error' in r.text:
         return default
     return (r.json() or [{}])[0].get('id', default)
@@ -104,6 +116,7 @@ def compileData(b, block, inc):
         trade=dict(
             info=dict(
                 setTime=dict(
+                    # check if remove 1 hour in all from next
                     second=getStamp(block[0][1], block[1][2]),
                     third=getStamp(block[0][1], None if len(block) < 3 else block[2][2])
                 ),
@@ -113,6 +126,7 @@ def compileData(b, block, inc):
                 marketInfo=dict(
                     marketName=block[0][3],
                     marketId='',
+                    # if "-" not present default is MATCH_ODDS, else use the suffix after " - "
                     marketType=(
                         "MATCH_ODDS" if ' - ' not in block[0][3] else block[0][3].split(' - ')[-1].
                             replace(' 1 ', '_').replace(' 2 ', '_')).upper(),
@@ -122,7 +136,7 @@ def compileData(b, block, inc):
                 executor=[block[0][5]],
                 exchange=dict(
                     name=block[0][4],  # COLUMN E
-                    commission=0.02 if block[0][4] in ['UK', 'DEMO'] else 0.05,
+                    commission=0.02 if block[0][4] in ['MT KEVIN',' UK', 'DEMO'] else 0.05,
                 ),
                 note=dict(
                     description='',
@@ -313,8 +327,8 @@ def compileData(b, block, inc):
     dump(json, open(os.path.join(outputPath, filename), 'w', encoding='utf-8'), indent=4)
 
 
-inputPath = "InputFolder"
-outputPath = "OutputFiles"
+inputPath = "Input"
+outputPath = "Output"
 
 outputPath = os.path.join(outputPath, datetime.now().strftime('%m_%d_%Y_%H_%M_%S'))
 if not os.path.exists(outputPath):

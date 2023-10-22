@@ -7,7 +7,7 @@ uploaded = 0
 totalFile = 0
 notUploaded = 0
 
-inputPath = "VALID/01_lay the fav/04_04_2022_16_57_17"
+inputPath = "Output"
 outputPath = "uploadLog"
 
 def log(*args, end='\n'):
@@ -45,7 +45,7 @@ client = pymongo.MongoClient(
 db = client.bf_historical
 
 
-for dirpath, dirnames, filenames in os.walk("./VALID"):
+for dirpath, dirnames, filenames in os.walk(inputPath):
     for filename in [f for f in filenames if f.endswith(".json")]:
         try:
             totalFile = totalFile+1
